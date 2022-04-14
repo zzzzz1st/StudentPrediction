@@ -19,5 +19,4 @@ python preprocess.py
 ```bash
 python analysis.py
 ```
-
-
+For more details please see the <em> StudentPrediction.pdf</em> file
