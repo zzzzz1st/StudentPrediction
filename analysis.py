@@ -10,11 +10,10 @@ def analysis(df):
     y = df["final_result"]
     x = df.drop(columns="final_result")
     x_train, x_test, y_train, y_test = train_test_split(x, y)
-    weight = x_train["weight"]
     x_train = x_train.drop(columns="weight")
     x_test = x_test.drop(columns="weight")
     clf = AdaBoostClassifier(n_estimators=100, random_state=0)
-    clf.fit(x_train, y_train, sample_weight=weight)
+    clf.fit(x_train, y_train)
     y_predicted = clf.predict(x_test)
     accuracy = accuracy_score(y_test, y_predicted)
     loss = 1 - accuracy
